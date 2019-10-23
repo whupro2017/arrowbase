@@ -1,5 +1,10 @@
 cmake_minimum_required(VERSION 3.5)
 project(ArrowBase)
+if (CMAKE_CXX_COMPILER_VERSION VERSION_GREATER 5.1)
+    set(CMAKE_CXX_STANDARD 14)
+else ()
+    set(CMAKE_CXX_STANDARD 11)
+endif ()
 
 include_directories(./utils)
 
@@ -29,6 +34,7 @@ if (CMAKE_SYSTEM_NAME MATCHES "Darwin")
     enable_testing()
     find_package(gtest REQUIRED)
     include_directories(${GTEST_INCLUDE_DIRS})
+    link_directories(/usr/local/lib)
 else ()
     include_directories(SYSTEM ${CMAKE_CURRENT_BINARY_DIR}/../third-party/gtest-1.7.0/fused-src)
     include_directories(SYSTEM ${CMAKE_CURRENT_BINARY_DIR}/../third-party/gtest-1.7.0/fused-src/gtest)
