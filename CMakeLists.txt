@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.5)
 project(ArrowBase)
 
+include_directories(./utils)
+
 if ((CMAKE_SYSTEM_NAME MATCHES "Linux") OR (CMAKE_SYSTEM_NAME MATCHES "Darwin"))
     set(PTHREAD -lpthread)
     if (CMAKE_SYSTEM_NAME MATCHES "Linux")
@@ -76,6 +78,7 @@ link_directories(${ARROW_PREFIX}/src/arrow-build/release)
 
 set(ARROW_TEST
         unit/ArrowDummy.cpp
+        efficiency/PseudoParquetWriterTest.cpp
         )
 
 foreach (sourcefile ${ARROW_TEST})

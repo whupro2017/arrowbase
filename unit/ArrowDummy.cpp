@@ -3,23 +3,18 @@
 //
 
 #include "parquet/api/reader.h"
-#include "parquet/api/writer.h"
-#include "parquet/exception.h"
 #include <arrow/io/api.h>
 #include "arrow/writer.h"
 #include "arrow/status.h"
 #include "gtest/gtest.h"
 #include <iostream>
-#include <cstdio>
 #include <string.h>
-#include <cstring>
-#include <assert.h>
 
 #include "arrow/api.h"
 #include "arrow/array.h"
 #include "arrow/type.h"
 
-//using namespace std;
+using namespace std;
 
 TEST(ArrowTest, WriterTest) {
     arrow::Int64Builder i64builder;
